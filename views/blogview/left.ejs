@@ -1,0 +1,32 @@
+<!-- 左边 -->
+<div id="leftBlog">
+  <!-- 主要信息 -->
+  <div class="usermessage">
+    <p class="person">个人资料</p>
+    <p class="usermsg">
+      <i class= "iconfont icon-hashiqi"></i>
+      <span><%= content.user.username %></span>
+    </p>
+    <!-- 评论什么的 -->
+    <ul>
+      <li>
+        <p>原创</p>
+        <p><%= num %></p>
+      </li>
+      <li>
+        <p>点赞</p>
+        <p class="good_total"><%= content.good %></p>
+      </li>
+      <li>
+        <p>评论</p>
+        <p><%= content.comments.length %></p>
+      </li>
+      <li>
+        <p >收藏</p>
+        <p class="collect_total"><%= content.collect %></p>
+      </li>
+    </ul>
+  </div>
+  <!-- 轮播图 -->
+  <% include ../blog/picChange %>
+</div>

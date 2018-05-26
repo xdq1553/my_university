@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/public/css/blog.css" type="text/css">
+<link rel="stylesheet" href="/public/css/blogview.css" type="text/css">
+<% include ../main/header %>
+<div class="bgpic">
+  <div class="picbg"></div>
+  <div class="blogContent">
+    <!-- 标题 -->
+    <h2><%= content.user.username %>的博客</h2>
+    <!-- 博文 -->
+    <div class="mainContent">
+        <!-- 左边 -->
+        <% include left %>
+        <% include right %>
+    </div>
+  </div>
+</div>
+<% include fixed %>
+<script src = "/public/js/blog.js"></script>
+<script src = "/public/js/blogview.js"></script>

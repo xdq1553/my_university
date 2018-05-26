@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/public/css/blog.css" type="text/css">
+
+<% include ../main/header %>
+<!-- 博客页面 -->
+<!-- 顶部图片 -->
+<div class="blogBanner">
+    <img src="/public/images/pic/blogbanner.jpg" alt="">
+</div>
+<!-- 博客主体 -->
+<div class="text">
+    <div class="text_P">
+        <!-- 左边 -->
+        <%- include left %>
+        <!-- 右边 -->
+        <div class="right">
+            <div class="titleBox">
+
+                <% for(var j = 0;j < categories.length;j++){ %>
+                <% if (categories[j]._id.toString() == currentCategory){ %>
+                    <a href="/blog/?category=<%= categories[j]._id.toString() %>" class="foucs"><%= categories[j].name %></a>
+                <% }else{ %>
+                    <a href="/blog/?category=<%= categories[j]._id.toString() %>" ><%= categories[j].name %></a>
+                <% } %>
+                <% } %>
+            </div>
+            <%- include picChange %>
+            <!-- 发帖子 -->
+            <div class="send"><a href="javascript:;">我要发帖</a></div>
+
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 引入js -->
+<script src = "/public/js/blog.js"></script>

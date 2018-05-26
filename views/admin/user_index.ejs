@@ -1,0 +1,41 @@
+<%- include layout %>
+
+   <ol class = "breadcrumb">
+   		<li><a href="/admin">管理首页</a></li>
+   		<li><span>用户列表</span></li>
+   </ol>
+   <h3>用户列表</h3>
+   <table class="table table-striped">
+	  <!-- 表头 -->
+	  <tr>
+	  	<th>ID</th>
+	  	<th>用户名</th>
+	  	<th>密码</th>
+	  	<th>是否是管理员</th>
+	  </tr>
+	  <!-- 通过模板循环，遍历数据数据 -->
+	  <% for (var i = 0;i < users.length;i++){ %>
+	  <tr>
+	  	<td><%= users[i]._id %></td>
+	  	<td><%= users[i].username %></td>
+	  	<td><%= users[i].password %></td>
+	  	<td>
+	  		<% if (users[i].isAdmin){ %>
+	  		是
+	  		<% }else{ %>
+	  		否
+	  		<% } %>
+	  	</td>
+	  </tr>
+	  <% } %>
+	</table>
+	<%- include page %>
+
+
+
+
+
+
+
+
+

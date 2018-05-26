@@ -1,0 +1,59 @@
+
+        <!-- 左边 -->
+        <div class="left">
+        <% for(var i = 0;i < contents.length;i++){ %>
+          <a  class= "aLeft" href="/view?contentid=<%= contents[i]._id %>&category=<%= currentCategory %>&user=<%= contents[i].user._id %>">
+            <div class="listBox">
+
+                <h1><%= contents[i].title %></h1>
+                <p class="textMessage">
+                    作者: <span class="adult"><%= contents[i].user.username %></span>
+                    时间: <span class="time"><%= contents[i].addTime.toLocaleDateString() %> <%= contents[i].addTime.toLocaleTimeString() %></span>
+                </p>
+                <dfn><p><%= contents[i].description %></p></dfn>
+                <div class="txt">
+                    <p class="detailTxt" id="detailTxt"><%= contents[i].content %></p>
+                </div>
+                <div class="comment">
+                    <p><i class="iconfont icon-dianzan2"></i><span style="color:#30aaf0;"><%= contents[i].good %></span></p>
+                    <p><i class="iconfont icon-liulanliang"></i> <span style="color:#30aaf0;"><%= contents[i].views %></span> </p>
+                    <p  class="comment_text" id="comment" ><i class="iconfont icon-comments"></i> <span style="color:#30aaf0;"><%= contents[i].comments.length %></span> </p>
+                </div>
+            </div>
+  </a>
+<% } %>
+        </div>
+        <!-- 发帖子 -->
+        <div class="sendStory" style="display:none;">
+            <form method = "post">
+               <div class = "group_1">
+                   <label for="title">分类：</label>
+                      <select name="category" id="selected" class = "selected_1">
+                         <!-- 这里的分类我们需要从数据库中进行读取 -->
+                         <% for(var i = 0;i < categories.length;i++){ %>
+
+                         <option value="<%= categories[i]._id.toString() %>" id="categoryid" class="<%= userInfo._id %>" name="<%= categories[i]._id.toString()%>"><%= categories[i].name %></option>
+
+                         <% } %>
+                      </select>
+                </div>
+                 <div class="group_2">
+                     <label for="title">标题：</label>
+                     <input type="text" class="title_text" name = "title" placeholder="请输入内容标题" id="title_text">
+                 </div>
+                 <div class="group_3">
+                     <label for="description">简介：</label>
+                     <textarea type="text" class="description_text" name = "description" placeholder="请输入内容简介" id="description_text"></textarea>
+                 </div>
+                 <div class="group_4">
+                     <label for="content">内容：</label>
+                     <textarea type="text" class="content_text" name = "content" placeholder="请输入内容" rows = "10" id="content_text"></textarea>
+                 </div>
+                 <% if(userInfo._id){ %>
+                 <p class="post_message"></p>
+                 <% }else{ %>
+                 <p class="post_message">要先登录才能发帖子哟</p>
+                 <% } %>
+               <button type="submit" class="btn_content">提交</button>
+            </form>
+        </div>

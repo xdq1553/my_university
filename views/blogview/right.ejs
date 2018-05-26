@@ -1,0 +1,50 @@
+<div id="rightBlog">
+  <!-- 博文主体 -->
+  <div class="listBox">
+      <h1><%= content.title %></h1>
+      <dfn><p><%= content.description %></p></dfn>
+      <p class="textMessage">
+          作者: <span class="adult"><%= content.user.username %></span>
+          时间: <span class="time"><%= content.addTime.toLocaleDateString() %> <%= content.addTime.toLocaleTimeString() %></span>
+      </p>
+
+      <div class="txt">
+          <p class="detailTxt"><%= content.content %></p>
+
+      </div>
+      <p class="icon_see"><span class="icon_view"><%= content.views%></span><i class="iconfont icon-liulanliang1 "></i></p>
+  </div>
+  <!-- 评论 -->
+
+  <div class="comText">
+  <!-- 为登录评论 -->
+      <div class="comWord">
+          <% if(userInfo._id){ %>
+          <p class="comWord_h" style="display:none;">
+              <input type="hidden" id="contentid" value="<%= content._id.toString() %>">
+              <textarea id="messageContent"></textarea><button id="messageBtn" class="submit">发表</button>
+          </p>
+          <% }else{ %>
+          <p class="wordDanger">您还没有登录哟！</p>
+          <% } %>
+      </div>
+      <!-- 显示评论 -->
+      <div class="messageList" style="display: block;">
+      <% if (!content.comments.length){ %>
+      <div class="messageList">
+          <div class="messageBox"><p style="text-align:center;line-height:20px;font-size:14px;">暂无评论</p></div>
+      </div>
+      <% }else{ %>
+
+      <% for(var j = 0;j < content.comments.length;j++){ %>
+          <div class="messageBox">
+              <p class="name"><span class="fl"><%= content.user.username %> : </span><span class="fr"><%= content.comments[j].content %></span></p>
+              <p class="text_c"><span class="ft"><%= content.comments[j].postTime.toLocaleDateString() %> <%= content.comments[j].postTime.toLocaleTimeString() %></span></p>
+          </div>
+      <% } %>
+      <% } %>
+      </div>
+
+  </div>
+
+</div>

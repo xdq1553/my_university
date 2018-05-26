@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/public/css/personcenter.css" type="text/css">
+<% include ../main/header %>
+
+<div class="bgimg">
+  <div class="imgbg"></div>
+  <div class="personContent">
+    <!-- 顶部的介绍 -->
+    <!-- 内容 -->
+    <div class="personShow">
+        <div class="personShow_h">
+          <p id ="myblog">我的博客</p>
+          <p id ="mycollect">我的收藏</p>
+        </div>
+        <!-- 内容 -->
+
+        <div class="content">
+            <% for(var i = 0;i < content.length;i++){ %>
+              <a  href="/view?contentid=<%= content[i]._id %>&category=<%= content[i].category %>&user=<%= content[i].user %>">
+          <div class="oneContent">
+            <p><%= content[i].title%></p>
+            <p><%= content[i].content %></p>
+            <p><i class="iconfont icon-shoucang2"></i>&nbsp;<%= content[i].collect %>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-dianzan2"></i>&nbsp;<%= content[i].good %>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-liulanliang1"></i>&nbsp;<%= content[i].views %>  &nbsp;&nbsp;&nbsp;<span><%= content[i].addTime.toLocaleDateString() %> <%= content[i].addTime.toLocaleTimeString() %></span></p>
+          </div>
+          </a>
+          <% } %>
+        </div>
+
+        <div class="content_1" style="display:none;">
+          <% for(var i = 0;i < content_1.length;i++){ %>
+            <a  href="/view?contentid=<%= content_1[i]._id %>&category=<%= content_1[i].category %>&user=<%= content_1[i].user %>">
+        <div class="oneContent">
+          <p><%= content_1[i].title%></p>
+          <p><%= content_1[i].content %></p>
+          <p><i class="iconfont icon-shoucang2"></i>&nbsp;<%= content_1[i].collect %>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-dianzan2"></i>&nbsp;<%= content[i].good %>&nbsp;&nbsp;&nbsp;<i class="iconfont icon-liulanliang1"></i>&nbsp;<%= content[i].views %>  &nbsp;&nbsp;&nbsp;<span><%= content[i].addTime.toLocaleDateString() %> <%= content[i].addTime.toLocaleTimeString() %></span></p>
+        </div>
+        </a>
+        <% } %>
+        </div>
+    </div>
+
+  </div>
+</div>
+<script src = "/public/js/personcenter.js"></script>

@@ -1,0 +1,123 @@
+<% include header %>
+    <!-- 背景大图 -->
+    <div class="banner">
+        <div class="banner_1"></div>
+        <!-- 分类和登陆注册 -->
+        <div class="content">
+            <div class="position_c">
+                <!-- 左边 -->
+                <div id="left">
+                    <!-- 商城 -->
+                    <div class="shopping">
+                        <img src="/public/images/pic/shopping.jpg" alt="">
+                    </div>
+                    <!-- 博客 -->
+                    <div class="blog">
+                        <img src="/public/images/pic/blog.jpg" alt="">
+                    </div>
+                </div>
+                <!-- 右边 -->
+                <div id="right">
+                    <% if (userInfo._id){ %>
+                    <!-- 登录成功显示 -->
+                    <div class="loginMessage">
+                        <div class="title">用户信息</div>
+                        <div class="name"> <%= userInfo.username %> </div>
+
+                        <% if(userInfo.isAdmin){ %>
+
+                        <p class="user">您好！管理员</p>
+                        <div class="out_1">
+                            <p class="out out_2"><a href="/admin">后台管理</a></p>
+
+                        </div>
+
+
+                        <% }else{ %>
+
+                        <p class="user">您好！欢迎光临</p>
+                        <p class="out"><a href="" id="loginout">退出</a></p>
+
+                        <% } %>
+                    </div>
+
+                    <% }else{ %>
+
+                    <div class="login">
+                        <div class="title">用户登录</div>
+                        <div class="loginBox">
+                            <div class="name">
+                                <input type="text" placeholder="用户名"  name="username">
+                            </div>
+                            <div class="password">
+                                <input type="password" placeholder="密码" name="password">
+                            </div>
+                            <div class="lrStatus">
+                                <input type="checkbox" checked="" class="checkbox">
+                                <p>自动登录</p>
+                            </div>
+                            <input  type="submit" id="submitLogin" value="登录">
+                            <div class="register_1">
+                              <p class="textMessage"></p>
+                                <div class="login_1">
+                                    <a href="#" id="btn_1">立即注册</a>
+                                    <a href="" class="btn_2">忘记密码？</a>
+                                </div>
+                            </div>
+                            <div class="others">
+                                <!-- <div class="otherTitle">
+                                    <span></span>
+                                    <p>其他登录方式</p>
+                                    <span></span>
+                                </div> -->
+                            </div>
+                            <div class="iconPics">
+                                <!-- <a href="" class="qq"><i class="icon_qq"></i></a>
+                                <a href="" class="wb"><i class="icon_wb"></i></a>
+                                <a href="" class="wx"><i class="icon_wx"></i></a>
+                                <a href="" class="zf"><i class="icon_zf"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <!-- 注册 -->
+                    <div class="register" style="display:none;">
+                        <div class="title">用户注册</div>
+                        <div class="registerBox">
+                            <div class="name">
+                                <input type="text" placeholder="用户名"  name="username">
+                            </div>
+                            <div class="password">
+                                <input type="password" placeholder="请输入密码"  name="password">
+                            </div>
+                            <div class="password">
+                                <input type="password" placeholder="请再次输入密码"  name="repassword">
+                            </div>
+                            <!-- 滑动 -->
+                            <div class="move">
+                                <div class="slider">
+                                    <div class="wrap">请按住滑块，拖动到指定位置</div>
+                                    <div class="block"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                            </div>
+                            <input  type="submit" id="submitRegister" value="注册">
+
+                            <div class="loginHave">
+                                <p class="textMessage"></p>
+                                <div class="login_2">
+                                    <a href="#" class="btn_1">已有账号</a>
+                                    <a href="" id="btn_2">立即登录</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 一些校园介绍 -->
+    <div class="school">
+
+    </div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/public/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/resert.css" type="text/css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_662129_v39u8zqhihs0dx6r.css">
+    <script src = "/public/js/jquery-1.12.4.min.js"></script>
+
+    <script src = "/public/js/index.js"></script>
+</head>
+<body>
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div id="header">
+        <!-- 导航中间 -->
+        <div id= "logo"><a href=""><img src="/public/images/pic/logo_1.png" alt=""></a></div>
+        <ul id="nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="/blog">博客</a></li>
+        </ul>
+        <!-- 导航右边登录、注册等 -->
+        <div id="right_1">
+            <!-- 登录注册 -->
+            <div class="login">
+                <% if(userInfo._id){ %>
+                <a href="javascript:;" id="welcome">欢迎您！<%= userInfo.username %></a>
+
+                <!-- 个人中心 -->
+                <div id="person" style="display:none;">
+                  <a href="/personcenter" id="personCenter">个人中心</a>
+                  <a href="javascript:;" id="loginOut">退出</a>
+                </div>
+
+                <% }else{ %>
+                <a href="javascript:;">未登录</a>
+                <!-- 登录 -->
+                <div id="person" style="display:none;height:60px;">
+                  <a href="/" id="personLogin">登录</a>
+                </div>
+                <% } %>
+            </div>
+            <!-- 搜索框 -->
+            <!-- <div class="search cl">
+                <input type="text" placeholder="熊" id="search_1">
+                <input type="button" id="btn">
+            </div> -->
+        </div>
+    </div>
+    </nav>
+</body>
+</html>
